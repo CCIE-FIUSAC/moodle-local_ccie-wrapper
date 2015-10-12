@@ -1,10 +1,10 @@
 <?php
 require_once('./class.matriculacionElearning.inc.php');
-$matris = new Matriculacion;
-// print_r($matris->hello_world());
+$uedi = new Matriculacion;
+// print_r($uedi->hello_world());
 // return;
 
-$cursosDisponibles = $matris->get_cursos('201621912')->cursos;
+$cursosDisponibles = $uedi->get_cursos('201621912')->cursos;
 // GET_CURSOS
 // print_r($cursosDisponibles);
 // return;
@@ -22,10 +22,10 @@ $params = array('username' => '201621912',
 'idnumbers' => $idnumbers
 );
 // MATRICULAR
-// $respuesta = $matris->matricular($params);
+// $respuesta = $uedi->matricular($params);
 // print_r($respuesta);
 // return;
 // DESMATRICULAR
-// $respuesta = $matris->desmatricular('201621912', array('0017A+')); // idnumber invalido
-$respuesta = $matris->desmatricular('201621912', $idnumbers);
+// $respuesta = $uedi->desmatricular('201621912', array('0017A+')); // idnumber invalido
+$respuesta = $uedi->desmatricular('201621912', $idnumbers);
 print_r($respuesta);
