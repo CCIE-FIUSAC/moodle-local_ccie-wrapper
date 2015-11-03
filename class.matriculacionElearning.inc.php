@@ -27,6 +27,7 @@ class Matriculacion {
   *  'username' Identificador único del usuario moodle (Usualmente el carné del estudiante)
   *  'firstname' Primer y segundo nombre del usuario
   *  'lastname' Apellidos del usuario
+  *  'password' Contraseña del usuario (Opcional)
   *  'email' Correo electrónico del usuario
   *  'roleid' Role que tiene el usuario con el curso. Valores: 3 (editingteacher), 4 (teacher), 5 (student)
   *  'idnumbers' Array donde cada elemento es un ID Number que representa el curso en moodle
