@@ -6,7 +6,7 @@ require_once('curl.php');
 */
 class Matriculacion {
   // Protocolo HTTP o HTTPS
-  private $protocol='http';
+  private $protocol='https';
   // Ubicacion de la plataforma moodle
   private $domain='uedi.ingenieria.usac.edu.gt/campus';
   // Token asignado por moodle para acceder al servicio 'local_ccie'
@@ -15,8 +15,8 @@ class Matriculacion {
   private $rest_format='json';
 
   /*
-  * Devuelve ubicacion del recurso elearning local_ccie_$funcion
-  * @param $funcion funcion del recurso elearning
+  * Devuelve ubicacion del recurso local_ccie_$funcion del campus virtual
+  * @param $funcion funcion del recurso del campus virtual
   */
   protected function get_serverurl($funcion){
     return $this->protocol.'://'.$this->domain.'/webservice/rest/server.php?wstoken='.$this->token.'&wsfunction=local_ccie_'.$funcion.'&moodlewsrestformat='.$this->rest_format;
@@ -27,16 +27,16 @@ class Matriculacion {
   *  'username' Identificador único del usuario moodle (Usualmente el carné del estudiante)
   *  'firstname' Primer y segundo nombre del usuario
   *  'lastname' Apellidos del usuario
-  *  'password' Contraseña del usuario (Opcional)
+  *  'password' Contraseña del usuario. Si se utiliza el pin, la política de contraseñas seguras de moodle debe estar desactivado. No enviar si se utiliza SSO
   *  'email' Correo electrónico del usuario
   *  'roleid' Role que tiene el usuario con el curso. Valores: 3 (editingteacher), 4 (teacher), 5 (student)
   *  'idnumbers' Array donde cada elemento es un ID Number que representa el curso en moodle
   * @return Estructura con los siguientes elementos:
-  *  'statusCode' 0 para exito, cualquier otro valor es fracaso
+  *  'statusCode' 200 indica exito, cualquier otro valor es fracaso
   *  'message' Informacion acerca del estado
   *  'username' Identificador único del usuario moodle (Usualmente el carné del estudiante)
   *  'enrolments' Array de una estructura con los siguientes elementos
-  *     'statusCode' 0 para exito, cualquier otro valor es fracaso
+  *     'statusCode' 200 indica éxito, cualquier otro valor es fracaso
   *     'message' Informacion acerca del estado
   *     'courseid' ID Number que representa el curso en moodle
   */
@@ -50,7 +50,7 @@ class Matriculacion {
   * @param username Identificador único del usuario moodle (Usualmente el carné del estudiante)
   * @param idnumbers Array donde cada elemento es un ID Number que representa el curso en moodle
   * @return Estructura con los siguientes elementos
-  *   'statusCode' 0 (Exito) o 1 (fracaso)
+  *   'statusCode' 200 indica éxito, cualquier otro valor es fracaso
   *   'message' Breve descripción del resultado
   *   'username' Identificador único del usuario moodle (Usualmente el carné del estudiante)
   */
