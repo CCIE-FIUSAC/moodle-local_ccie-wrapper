@@ -73,6 +73,18 @@ class Matriculacion {
     return json_decode($resp);
   }
   /**
+  * Devuelve el enlace para iniciar sesión con SSO
+  * Moodle debe tener la extensión 'auth_googleoauth2' con soporte para OpenAM instalado y configurado!
+  * @return String URL para iniciar sesión externo
+  * @return Array de una estructura con el siguiente elemento
+  *  'authurl' Enlace del SSO para iniciar sesión externo
+  **/
+  public function get_authurl(){
+    $curl = new curl;
+    $resp = $curl->post($this->get_serverurl('get_authurl'));
+    return json_decode($resp);
+  }
+  /**
   * Recurso de prueba de web service de moodle
   **/
   public function hello_world(){
