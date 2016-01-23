@@ -20,5 +20,6 @@ $uedi = new Matriculacion;
 * `$uedi->desmatricular` desmatricula un estudiante de TODOS los cursos en moodle, sin eliminar su progreso dentro de la misma.
 * `$uedi->get_cursos` devuelve un listado de cursos disponibles
 * `$uedi->get_authurl` devuelve el enlace para iniciar sesión con SSO
+* `$uedi->set_password` Cambia la contraseña de un estudiante
 
 > NOTA: para mayor información, ver comentarios en `class.matriculacionElearning.inc.php`

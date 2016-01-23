@@ -3,6 +3,10 @@ require_once('./class.matriculacionElearning.inc.php');
 $uedi = new Matriculacion;
 //print_r($uedi->hello_world());
 //return;
+// SET_PASSWORD
+//$passwordResult = $uedi->set_password('201621912', 'N4u.k30aZ1_');
+//print_r($passwordResult);
+//return;
 // GET_AUTHURL
 //$authurl = $uedi->get_authurl()->authurl;
 //print_r($authurl);

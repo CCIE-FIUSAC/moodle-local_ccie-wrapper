@@ -84,6 +84,19 @@ class Matriculacion {
     $resp = $curl->post($this->get_serverurl('get_authurl'));
     return json_decode($resp);
   }
+  /*
+  * Cambia la contraseña de un estudiante.
+  * @param username Identificador único del usuario moodle (Usualmente el carné del estudiante).
+  * @param password Nueva contraseña del usuario.
+  * @return Estructura con los siguientes elementos:
+  *  'statusCode' 200 indica exito, cualquier otro valor es fracaso
+  *  'message' Informacion acerca del estado
+  */
+  public function set_password($username, $password){
+    $curl = new curl;
+    $resp = $curl->post($this->get_serverurl('set_password'), array('username'=>$username, 'password'=>$password));
+    return json_decode($resp);
+  }
   /**
   * Recurso de prueba de web service de moodle
   **/
